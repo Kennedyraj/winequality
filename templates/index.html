@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Quality Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #800020;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #a80030;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Wine Quality Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="fixed_acidity">Fixed Acidity</label>
+            <input type="number" step="any" name="fixed_acidity" required>
+            
+            <label for="volatile_acidity">Volatile Acidity</label>
+            <input type="number" step="any" name="volatile_acidity" required>
+            
+            <label for="citric_acid">Citric Acid</label>
+            <input type="number" step="any" name="citric_acid" required>
+            
+            <label for="residual_sugar">Residual Sugar</label>
+            <input type="number" step="any" name="residual_sugar" required>
+            
+            <label for="chlorides">Chlorides</label>
+            <input type="number" step="any" name="chlorides" required>
+            
+            <label for="free_sulfur_dioxide">Free Sulfur Dioxide</label>
+            <input type="number" step="any" name="free_sulfur_dioxide" required>
+            
+            <label for="total_sulfur_dioxide">Total Sulfur Dioxide</label>
+            <input type="number" step="any" name="total_sulfur_dioxide" required>
+            
+            <label for="density">Density</label>
+            <input type="number" step="any" name="density" required>
+            
+            <label for="ph">pH</label>
+            <input type="number" step="any" name="ph" required>
+            
+            <label for="sulphates">Sulphates</label>
+            <input type="number" step="any" name="sulphates" required>
+            
+            <label for="alcohol">Alcohol</label>
+            <input type="number" step="any" name="alcohol" required>
+            
+            <button type="submit">Predict Quality</button>
+        </form>
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
